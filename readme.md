@@ -33,6 +33,7 @@ If you want also a fancy a shell to interact with
 pkg add http://pkg.freebsd.org/freebsd:10:x86:64/latest/All/pcre2-10.21_1.txz
 pkg add http://pkg.freebsd.org/freebsd:10:x86:64/latest/All/readline-7.0.3.txz
 pkg add http://pkg.freebsd.org/freebsd:10:x86:64/latest/All/python36-3.6.2_1.txz
+pkg add http://pkg.freebsd.org/freebsd:10:x86:64/latest/All/python3-3_3.txz
 pkg add http://pkg.freebsd.org/freebsd:10:x86:64/latest/All/fish-2.6.0.txz
 ```
 
@@ -46,7 +47,7 @@ Go to base directory as in "Installing TMUX"
 
 ```Shell
 cd usr/bin
-cp man groff tbl troff grotty /usr/bin
+cp man groff tbl troff grotty apropos /usr/bin
 
 cd ../share
 cp -r man groff_font tmac /usr/share
