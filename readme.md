@@ -61,6 +61,46 @@ Just setup the custom options in Advanced Configuration on Openvpn client
 route-up /root/yourscript.sh
 ```
 
+## Ipv6 DHCP flooding
+
+This is due to a bug in WIDE DHCPv6. I experienced myself problems in hosting on online.net.
+
+See [DHCPV6 Flooding](https://hauweele.net/~gawen/blog/?tag=dhcp6c)
+
+Here's how I fix it on PFSense:
+
+First make sure to set WAN interface to a static address.
+
+Add isc-dhcp43 package. It will complain it does already exist, force it.
+
+```
+pkg add -f http://pkg.freebsd.org/freebsd:10:x86:64/latest/All/isc-dhcp43-client-4.3.6.txz
+```
+
+Create /usr/local/etc/dhclient6.conf
+
+```
+interface "igb0" {
+  send dhcp6.client-id DUID;
+}
+```
+
+Now we need to run some commands at boot time. I used shellcmd package for this.
+
+First enable igb0 to accept router advertisement and run rtsold daemon to send solicit messages.
+
+```
+/sbin/ifconfig igb0 inet6 accept_rtadv; /usr/sbin/rtsold igb0
+```
+
+Second start dhclient
+
+```
+/usr/local/sbin/dhclient -cf /usr/local/etc/dhclient6.conf -P igb0
+```
+
+Order should not matter
+
 ## Dynamically change IPV6 address of an interface after Openvpn connect
 This was my scenario
 - Openvpn Client connect to server and get an IPV6/64 address
