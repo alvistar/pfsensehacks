@@ -29,6 +29,8 @@ cp -r usr/share/locale /usr/share
 ## Installing FISH shell
 If you want also a fancy a shell to interact with
 
+### For Pfsense < 2.4 (Uses freebsd 10)
+
 ```Shell
 pkg add http://pkg.freebsd.org/freebsd:10:x86:64/latest/All/pcre2-10.21_1.txz
 pkg add http://pkg.freebsd.org/freebsd:10:x86:64/latest/All/readline-7.0.3.txz
@@ -36,6 +38,14 @@ pkg add http://pkg.freebsd.org/freebsd:10:x86:64/latest/All/python36-3.6.2_1.txz
 pkg add http://pkg.freebsd.org/freebsd:10:x86:64/latest/All/python3-3_3.txz
 pkg add http://pkg.freebsd.org/freebsd:10:x86:64/latest/All/fish-2.6.0.txz
 ```
+
+### For Pfsense >= 2.4 (Uses freebsd 11)
+pkg add http://pkg.freebsd.org/freebsd:11:x86:64/latest/All/pcre2-10.21_1.txz
+pkg add http://pkg.freebsd.org/freebsd:11:x86:64/latest/All/readline-7.0.3_1.txz
+pkg add http://pkg.freebsd.org/freebsd:11:x86:64/latest/All/python36-3.6.4.txz
+pkg add http://pkg.freebsd.org/freebsd:11:x86:64/latest/All/python3-3_3.txz
+pkg add http://pkg.freebsd.org/freebsd:11:x86:64/latest/All/fish-2.7.0.txz
+
 
 Fish should be **ALMOST** working now. Fish is using man pages for useful autocompletion, but man pages are missing in pfsense.
 
