@@ -19,7 +19,7 @@ Unfortunately this is not enough:
 Unfortunately locales are missing from pfsense. Let's fix this
 
 ```Shell
-curl -JLO http://ftp.freebsd.org/pub/FreeBSD/releases/amd64/10.3-RELEASE/base.txz
+curl -JLO http://ftp.freebsd.org/pub/FreeBSD/releases/amd64/12.3-RELEASE/base.txz
 mkdir base
 cd base
 tar xvf ../base.txz
